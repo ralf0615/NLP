@@ -67,3 +67,43 @@ nltk.corpus.gutenberg.fileids()
 1.8 Text Corpus Structure
 """
 sents = gutenberg.sents("burgess-busterbrown.txt")
+
+
+"""
+2.2 Counting Words by Genre
+"""
+from nltk.corpus import brown
+cfd = nltk.ConditionalFreqDist(
+        (genre, word)
+        for genre in brown.categories()
+        for word in brown.words(categories = genre))
+
+
+"""
+4. Lexical Resources
+"""
+my_text = ['My', 'name', 'is', 'Honey', 'Booboo']
+vocab = sorted(set(my_text))
+word_freq = FreqDist(my_text)
+
+"""
+4.1 Wordlist Corpora
+"""
+from nltk.corpus import stopwords
+stopwords.words('english')
+
+
+"""
+5. WordNet
+"""
+from nltk.corpus import wordnet as wn
+wn.synsets('bitch') #just exploring :D
+wn.synset('cunt.n.01').lemma_names()
+wn.synset('cunt.n.01').definition()
+
+wn.synsets('dish')
+
+for synset in wn.synsets('dish'):
+    print(str(synset) + ":" + synset.definition())
+    
+wn.synset('dish.n.02').definition()
