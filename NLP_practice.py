@@ -107,3 +107,40 @@ for synset in wn.synsets('dish'):
     print(str(synset) + ":" + synset.definition())
     
 wn.synset('dish.n.02').definition()
+
+"""
+Sematic Similarity
+"""
+right = wn.synset('right_whale.n.01')
+
+
+"""
+3 Processing Raw Text
+"""
+
+from urllib import request
+url = "http://www.gutenberg.org/files/2554/2554-0.txt"
+response = request.urlopen(url)
+raw = response.read().decode('utf-8-sig')
+type(raw)
+len(raw)
+raw[:75]
+tokens = word_tokenize(raw)
+tokens[:10]
+
+text = nltk.Text(tokens)
+text.collocations() #Frequent bigrams
+
+url = "http://news.bbc.co.uk/2/hi/health/2284783.stm"
+html = request.urlopen(url).read().decode('utf8')
+print(html)
+
+
+from bs4 import BeautifulSoup
+raw = BeautifulSoup(html, "lxml").get_text()
+tokens = word_tokenize(raw)
+tokens
+
+tokens = tokens[110:390]
+text = nltk.Text(tokens)
+text.concordance('gene')
