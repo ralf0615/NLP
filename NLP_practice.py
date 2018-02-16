@@ -144,3 +144,9 @@ tokens
 tokens = tokens[110:390]
 text = nltk.Text(tokens)
 text.concordance('gene')
+
+"""
+Reading Local Files
+"""
+f = open('/Users/yuchenli/Google Drive/Code/Python/NLP/test.txt')
+raw = f.read()
