@@ -150,3 +150,32 @@ Reading Local Files
 """
 f = open('/Users/yuchenli/Google Drive/Code/Python/NLP/test.txt')
 raw = f.read()
+f = open('/Users/yuchenli/Google Drive/Code/Python/NLP/test.txt')
+f.read()
+
+# Read line by line
+f = open('/Users/yuchenli/Google Drive/Code/Python/NLP/test.txt')
+for line in f:
+    print(line.strip())
+    
+# Capturing user input
+s = input("Enter some text: ")
+print("You typed,", len(word_tokenize(s)), "words")
+
+"""
+Extracting encoded text from files
+"""
+path = nltk.data.find('corpora/unicode_samples/polish-lat2.txt')
+f = open(path, encoding = 'latin2')
+i=0
+for line in f:
+    if (i<=5):
+        print(line.strip())
+        i+=1
+        
+"""
+4 Writing Structured Programs
+"""
+empty = []
+nested = [empty, empty, empty]
+nested
